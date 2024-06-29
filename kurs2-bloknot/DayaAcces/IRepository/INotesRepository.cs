@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace DayaAcces.IRepository
 {
-    public interface INotesRepository<T>
+    public interface INotesRepository
     {
-        Task<T> GetById(int id);
-        Task<bool> CreatenewNote(T entity);
+        Task<Notes> GetById(int id);
+        Task<bool> CreatenewNote(Notes entity);
         IQueryable GetAllNotes();
-        Task<bool> UpdateNote(T entity);
+        Task<bool> UpdateNote(Notes entity);
         Task<bool> DeleteNote(int id);
-        Task<User> GetAuthor(T entity);
+        Task<User> GetAuthor(Notes entity);
         Task<bool> SaveChangesAsync();
     }
 }

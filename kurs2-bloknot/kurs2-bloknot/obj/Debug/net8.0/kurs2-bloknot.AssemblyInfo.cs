@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("kurs2-bloknot")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6995f39b613fd972fd9d24871dc10ce2640876ba")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bfef0d3fedd8387f975f14d37c343713c90e48cf")]
 [assembly: System.Reflection.AssemblyProductAttribute("kurs2-bloknot")]
 [assembly: System.Reflection.AssemblyTitleAttribute("kurs2-bloknot")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

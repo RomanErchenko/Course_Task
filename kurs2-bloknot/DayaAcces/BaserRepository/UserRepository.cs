@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DayaAcces.BaserRepository
 {
-    public class UserRepository : IUser<User>
+    public class UserRepository : IUser
     {
         private readonly IRepository<User> _userRepository;
         private readonly IMapper _mapper;

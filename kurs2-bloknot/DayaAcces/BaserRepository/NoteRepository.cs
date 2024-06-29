@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DayaAcces.BaserRepository
 {
-    public class NoteRepository : INotesRepository<Notes>
+    public class NoteRepository : INotesRepository
     {
         private readonly IRepository<Notes> _notesRepository;
         private readonly IMapper _mapper;

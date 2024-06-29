@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DayaAcces.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace DayaAcces.IRepository
 {
-    public interface IUser<T>
+    public interface IUser
     {
-        Task<T> GetById(int id);
-        Task<bool> CreatenewUser(T entity);
+        Task<User> GetById(int id);
+        Task<bool> CreatenewUser(User entity);
         IQueryable GetAllUserNotes();
-        Task<bool> UpdateUser(T entity);
+        Task<bool> UpdateUser(User entity);
         Task<bool> DeleteUser(int id);
         Task<bool> SaveChangesAsync();
 
