@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "J6yZsMRSPMjIPWC+mcmIhtAfMpXZxd9O2c6uI2Blto5KZ30ypT3m9aixIUxKQoUCMtWfNYpv85K9zEQ8iR7XTA==",
+  "dgSpecHash": "VKT9Y+mHM/hxX51g4jvI5R/zXMGLgDgb8+3bBi5SDFKS6EbKcqig1TADV5UuBbL/326QPjAEtKXpB4jE5PStDg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Acer\\source\\repos\\kurs2-bloknot\\kurs2-bloknot\\kurs2-bloknot.csproj",
+  "projectFilePath": "C:\\Users\\Acer\\Desktop\\git\\kurs2-bloknot\\kurs2-bloknot\\kurs2-bloknot.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Acer\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Acer\\source\\repos\\kurs2-bloknot\\kurs2-bloknot\\kurs2-bloknot.csproj": {}
+    "C:\\Users\\Acer\\Desktop\\git\\kurs2-bloknot\\kurs2-bloknot\\kurs2-bloknot.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Acer\\source\\repos\\kurs2-bloknot\\DayaAcces\\DayaAcces.csproj": {
+    "C:\\Users\\Acer\\Desktop\\git\\kurs2-bloknot\\DayaAcces\\DayaAcces.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Acer\\source\\repos\\kurs2-bloknot\\DayaAcces\\DayaAcces.csproj",
+        "projectUniqueName": "C:\\Users\\Acer\\Desktop\\git\\kurs2-bloknot\\DayaAcces\\DayaAcces.csproj",
         "projectName": "DayaAcces",
-        "projectPath": "C:\\Users\\Acer\\source\\repos\\kurs2-bloknot\\DayaAcces\\DayaAcces.csproj",
+        "projectPath": "C:\\Users\\Acer\\Desktop\\git\\kurs2-bloknot\\DayaAcces\\DayaAcces.csproj",
         "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Acer\\source\\repos\\kurs2-bloknot\\DayaAcces\\obj\\",
+        "outputPath": "C:\\Users\\Acer\\Desktop\\git\\kurs2-bloknot\\DayaAcces\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -94,14 +94,14 @@
         }
       }
     },
-    "C:\\Users\\Acer\\source\\repos\\kurs2-bloknot\\kurs2-bloknot\\kurs2-bloknot.csproj": {
+    "C:\\Users\\Acer\\Desktop\\git\\kurs2-bloknot\\kurs2-bloknot\\kurs2-bloknot.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Acer\\source\\repos\\kurs2-bloknot\\kurs2-bloknot\\kurs2-bloknot.csproj",
+        "projectUniqueName": "C:\\Users\\Acer\\Desktop\\git\\kurs2-bloknot\\kurs2-bloknot\\kurs2-bloknot.csproj",
         "projectName": "kurs2-bloknot",
-        "projectPath": "C:\\Users\\Acer\\source\\repos\\kurs2-bloknot\\kurs2-bloknot\\kurs2-bloknot.csproj",
+        "projectPath": "C:\\Users\\Acer\\Desktop\\git\\kurs2-bloknot\\kurs2-bloknot\\kurs2-bloknot.csproj",
         "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Acer\\source\\repos\\kurs2-bloknot\\kurs2-bloknot\\obj\\",
+        "outputPath": "C:\\Users\\Acer\\Desktop\\git\\kurs2-bloknot\\kurs2-bloknot\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -123,8 +123,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Acer\\source\\repos\\kurs2-bloknot\\DayaAcces\\DayaAcces.csproj": {
-                "projectPath": "C:\\Users\\Acer\\source\\repos\\kurs2-bloknot\\DayaAcces\\DayaAcces.csproj"
+              "C:\\Users\\Acer\\Desktop\\git\\kurs2-bloknot\\DayaAcces\\DayaAcces.csproj": {
+                "projectPath": "C:\\Users\\Acer\\Desktop\\git\\kurs2-bloknot\\DayaAcces\\DayaAcces.csproj"
               }
             }
           }

@@ -65,7 +65,7 @@ namespace DayaAcces.BaserRepository
 
       public async  Task<bool> UpdateNote(Notes entity)
         {
-            _notesRepository.UpdateAsync(entity);
+          await  _notesRepository.UpdateAsync(entity);
             return true;
         }
 

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/uT9J/1R4vOX87dLswPDhd8Foe5baKAIc7MkiIdE0VME9rjH6W9Alawa5dbmhLYwi9ytmo3B43YGZTLuy7fRlA==",
+  "dgSpecHash": "egAlNtngOkhjTDdNZRL7Mz/snTc1aVOOzSirxrqQ9LUUeZDLV8n1rXhzAb5aO40DnLgJFQekYQZbNGMEjvYnFA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Acer\\source\\repos\\kurs2-bloknot\\DayaAcces\\DayaAcces.csproj",
+  "projectFilePath": "C:\\Users\\Acer\\Desktop\\git\\kurs2-bloknot\\DayaAcces\\DayaAcces.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Acer\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",

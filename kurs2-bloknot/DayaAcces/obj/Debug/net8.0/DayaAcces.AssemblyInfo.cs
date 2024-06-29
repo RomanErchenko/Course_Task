@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DayaAcces")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6995f39b613fd972fd9d24871dc10ce2640876ba")]
 [assembly: System.Reflection.AssemblyProductAttribute("DayaAcces")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DayaAcces")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

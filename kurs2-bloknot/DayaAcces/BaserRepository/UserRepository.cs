@@ -51,14 +51,17 @@ namespace DayaAcces.BaserRepository
             return await _userRepository.GetByIdAsync(id);
         }
 
-        public Task<bool> SaveChangesAsync()
+        public async Task<bool> SaveChangesAsync()
         {
-            throw new NotImplementedException();
+
+            await _userRepository.SaveChangesAsync();
+            return true;
         }
 
-        public Task<bool> UpdateUser(User entity)
+        public async Task<bool> UpdateUser(User entity)
         {
-            throw new NotImplementedException();
+           await _userRepository.UpdateAsync(entity);
+            return true;
         }
     }
 }
