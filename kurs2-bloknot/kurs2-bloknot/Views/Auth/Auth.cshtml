@@ -1,0 +1,28 @@
+﻿@model kurs2_bloknot.Models.User_Created
+@{
+    ViewData["Title"] = "Check User";
+}
+
+<h1>Create</h1>
+
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend>Push Login button to enter the App</legend>
+
+        <div>
+            <label>Task Name</label>
+            @Html.TextBoxFor(m => m.Login)
+        </div>
+
+        <div>
+            <label>Start Date</label>
+            @Html.TextBoxFor(m => m.Password)
+        </div>
+
+
+
+        <input type="submit" value="Login" />
+
+    </fieldset>
+}

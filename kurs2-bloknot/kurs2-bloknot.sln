@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34408.163
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kurs2-bloknot", "kurs2-bloknot\kurs2-bloknot.csproj", "{5BF035BC-1F97-4787-8584-DD67FE30167B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DayaAcces", "DayaAcces\DayaAcces.csproj", "{DCC5A75F-1D56-454A-A38F-C9E06B8B3658}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5BF035BC-1F97-4787-8584-DD67FE30167B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BF035BC-1F97-4787-8584-DD67FE30167B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BF035BC-1F97-4787-8584-DD67FE30167B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BF035BC-1F97-4787-8584-DD67FE30167B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCC5A75F-1D56-454A-A38F-C9E06B8B3658}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCC5A75F-1D56-454A-A38F-C9E06B8B3658}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCC5A75F-1D56-454A-A38F-C9E06B8B3658}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCC5A75F-1D56-454A-A38F-C9E06B8B3658}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7E6735DA-4128-4BF6-9F37-071814B07697}
+	EndGlobalSection
+EndGlobal
