@@ -6,14 +6,12 @@ using System.Threading.Tasks;
 
 namespace Service_Layer.Model
 {
-    //Add Model Notes for service Layer
-    public class Notes_S
+    public class NoteDto
     {
         public int Id { get; set; }
-        public string Info { get; set; }
+        public string Info { get; set; } = string.Empty;
         public DateTime Date { get; set; }
         public int UserId { get; set; }
-        public virtual User_S User { get; set; }
-
+        public UserDto User { get; set; } = new();
     }
 }

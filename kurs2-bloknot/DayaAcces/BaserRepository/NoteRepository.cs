@@ -34,7 +34,13 @@ namespace DayaAcces.BaserRepository
             
         }
 
-      public async  Task<User> GetAuthor(Notes entity)
+        public IEnumerable<Notes> GetAll()
+        {
+            return Context.Notess.ToList();
+
+        }
+
+        public async  Task<User> GetAuthor(Notes entity)
         {
             return  await  Context.Users.Where(p=>p.Id==entity.User.Id).FirstAsync();
            

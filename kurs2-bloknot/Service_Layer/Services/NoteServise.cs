@@ -21,7 +21,7 @@ namespace Service_Layer.Services
             _notesRepository = notesRepository;
 
         }
-        public async Task<bool> CreateNewNote(Notes_S entity)
+        public async Task<bool> CreateNewNote(NoteDto entity)
         {
             if (entity == null)
             {
@@ -43,24 +43,47 @@ namespace Service_Layer.Services
             return true;
         }
 
-        public IEnumerable<Notes_S> GetAllNotes()
+        public IEnumerable<NoteDto> GetAllNotes()
         {
             IEnumerable<Notes> notes= _notesRepository.GetAllAsync();
-            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<Notes, Notes_S>()).CreateMapper();
-            IEnumerable<Notes_S> notess = mapper.Map<IEnumerable<Notes>, List<Notes_S>>(notes);
+            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<Notes, NoteDto>()).CreateMapper();
+            IEnumerable<NoteDto> notess = mapper.Map<IEnumerable<Notes>, List<NoteDto>>(notes);
             return notess;
         }
 
-        public async Task<User_S> GetAuthor(Notes_ entity)
+        public IEnumerable<NoteDto> GetAllNotesforUser(UserDto entity)
         {
-           var user= _notesRepository.GetAuthor(entity);
-             User_S user = _mapper.Map<User>(user);
+            User user = _mapper.Map<User>(entity);
+            var p =  _notesRepository.GetAllNotes();
+            var notes=   p.Where(p=>p.UserId==entity.Id).ToList();
+            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<Notes, NoteDto>()).CreateMapper();
+            IEnumerable<NoteDto> notess = mapper.Map<IEnumerable<Notes>, List<NoteDto>>(notes);
 
+            return notess;
+
+
+        }
+
+        public async Task<UserDto> GetAuthor(NoteDto entity)
+        {
+            Notes note = _mapper.Map<Notes>(entity);
+            var user= await  _notesRepository.GetAuthor(note);
+
+             UserDto userdto = _mapper.Map<UserDto>(user);
+            return  userdto;
+            
         }
 
         public async Task<Notes> GetById(int id)
         {
             return await _notesRepository.GetByIdAsync(id);
+        }
+
+        public async Task<NoteDto> GetNote(int id)
+        {
+            var note = await _notesRepository.GetById(id);
+            NoteDto notes = _mapper.Map<NoteDto>(note);
+            return notes;
         }
 
         public async Task<bool> SaveChangesAsync()
@@ -69,9 +92,10 @@ namespace Service_Layer.Services
             return true;
         }
 
-        public async Task<bool> UpdateNote(Notes entity)
+        public async Task<bool> UpdateNotes(NoteDto entity)
         {
-            await _notesRepository.UpdateAsync(entity);
+            Notes note = _mapper.Map<Notes>(entity);
+            await _notesRepository.UpdateAsync(note);
             return true;
         }
 

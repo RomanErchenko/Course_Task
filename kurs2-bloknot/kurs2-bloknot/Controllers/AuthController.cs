@@ -6,20 +6,20 @@ namespace kurs2_bloknot.Controllers
 {
     public class AuthController : Controller
     {
-        IUserRepository user;
-        IMapper mapper;
+       private readonly IUserRepository user;
+       private readonly IMapper mapper;
 
         public AuthController(IUserRepository _user, IMapper _mapper)
         {
             user = _user;
             mapper = _mapper;
         }
-        public IActionResult Enter_Login()
+        public IActionResult EnterLogin()
         {
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Enter_Login(string login, string password)
+        public async Task<IActionResult> EnterLogin(string login, string password)
         {
             bool check = await user.GetPass(login, password);
             return View(check);

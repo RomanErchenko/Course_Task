@@ -10,9 +10,9 @@ namespace DayaAcces.Model
     {
 
         public int Id { get; set; }
-        public string Info { get; set; }
+        public string Info { get; set; }=string.Empty;
         public DateTime Date { get; set; }
         public int UserId { get; set; }
-        public virtual User User { get; set; }
+        public virtual User User { get; set; } = new();
     }
 }

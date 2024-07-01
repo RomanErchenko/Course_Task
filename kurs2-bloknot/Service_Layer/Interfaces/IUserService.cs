@@ -10,13 +10,13 @@ namespace Service_Layer.Interfaces
     public interface IUserService
     {
         //Create User
-        Task<bool> CreateNewUser(User_S entity);
+        Task<bool> CreateNewUser(UserDto entity);
         //Get User Infor
-        Task<User_S> GetUser(int id);
+        Task<UserDto> GetUser(int id);
         //Get all User
-        IQueryable GetAllUser();
+        IEnumerable<UserDto> GetAllUser();
         // Update user
-        Task<bool> UpdateUser(User_S entity);
+        Task<bool> UpdateUser(UserDto entity);
         //Delete  user
         Task<bool> DeleteUser(int id);
 
