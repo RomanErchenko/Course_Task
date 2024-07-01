@@ -20,7 +20,7 @@ namespace DayaAcces.BaserRepository
             Entity = Context.Set<T>();
         }
         //method get all parameters
-        public IQueryable GetAllAsync()
+        public IEnumerable<T> GetAllAsync()
         {
             return  Entity;
         }

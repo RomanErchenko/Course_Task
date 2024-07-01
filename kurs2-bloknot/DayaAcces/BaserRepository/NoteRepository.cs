@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
+using DayaAcces.BaserRepository;
 using DayaAcces.IRepository;
 using DayaAcces.Model;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,17 +12,46 @@ using System.Threading.Tasks;
 
 namespace DayaAcces.BaserRepository
 {
-    public class NoteRepository : INotesRepository
+    public class NoteRepository :BaseRepository<Notes>, INotesRepository
     {
-        private readonly IRepository<Notes> _notesRepository;
-        private readonly IMapper _mapper;
-        public NoteRepository(IRepository<Notes> notesRepository,IMapper mapper)
+        private ModelContext Context;
+
+        public NoteRepository(ModelContext context) : base(context)
         {
-         _mapper = mapper;
-         _notesRepository = notesRepository;
-        
+            Context = context;
+
         }
-       public  async Task<bool> CreatenewNote(Notes entity)
+        
+      public async Task<bool> DeleteNote(int id)
+        {
+            await Context.Notess.Where(p => p.Id == id).ExecuteDeleteAsync();    
+            return true;
+        }
+
+       public  IEnumerable<Notes> GetAllNotes()
+        {
+           return Context.Notess.Include(p=>p.User).ToList();
+            
+        }
+
+      public async  Task<User> GetAuthor(Notes entity)
+        {
+            return  await  Context.Users.Where(p=>p.Id==entity.User.Id).FirstAsync();
+           
+        }
+
+      public async  Task<Notes> GetById(int id)
+        {
+            return await Context.Notess.Where(p=>p.Id==id).FirstAsync();
+        }
+
+     new public  async Task<bool> SaveChangesAsync()
+        {
+           await Context.SaveChangesAsync();
+            return true;
+        }
+
+      public async  Task<bool> UpdateNote(Notes entity )
         {
             if (entity == null)
             {
@@ -28,45 +59,25 @@ namespace DayaAcces.BaserRepository
             }
             else
             {
-              await _notesRepository.AddAsync(entity);
+                Context.Entry(entity).State = EntityState.Modified;
+                await SaveChangesAsync();
                 return true;
-            
             }
         }
 
-      public async Task<bool> DeleteNote(int id)
+        public async Task<bool> CreatenewNote(Notes entity)
         {
-           await _notesRepository.DeleteAsync(id);
-            return true;
-        }
-
-       public IQueryable GetAllNotes()
-        {
-           return _notesRepository.GetAllAsync();
-            
-        }
-
-      public async  Task<User> GetAuthor(Notes entity)
-        {
-            var p= entity.User;
-            return  p;
-        }
-
-      public async  Task<Notes> GetById(int id)
-        {
-            return await _notesRepository.GetByIdAsync(id);
-        }
-
-      public  async Task<bool> SaveChangesAsync()
-        {
-            await _notesRepository.SaveChangesAsync();
-            return true;
-        }
-
-      public async  Task<bool> UpdateNote(Notes entity)
-        {
-          await  _notesRepository.UpdateAsync(entity);
-            return true;
+            if (entity == null)
+            {
+                return false;
+            }
+            else
+            {  
+                
+               await Context.Notess.AddAsync(entity);
+                await SaveChangesAsync();
+                return true;
+            }
         }
 
 
