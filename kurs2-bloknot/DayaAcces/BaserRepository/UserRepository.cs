@@ -45,6 +45,10 @@ namespace DayaAcces.BaserRepository
         {
             return Context.Users.Include(p => p.Note).ToList();
         }
+        public IEnumerable<User> GetAllUser()
+        {
+            return Context.Users.ToList();
+        }
 
         public async Task<User> GetById(int id)
         {

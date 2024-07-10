@@ -19,6 +19,10 @@ namespace Service_Layer.Interfaces
         Task<bool> UpdateUser(UserDto entity);
         //Delete  user
         Task<bool> DeleteUser(int id);
+        Task<bool> CheckPassword(string entity1, string entity2);
+
+        Task<UserDto> Validation(string entity1, string entity2);
+
 
 
     }

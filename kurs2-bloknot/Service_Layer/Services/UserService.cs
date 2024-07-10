@@ -23,6 +23,8 @@ namespace Service_Layer.Services
 
         }
 
+       
+
         public async Task<bool> CreateNewUser(UserDto entity)
         {
             if (entity == null)
@@ -68,6 +70,33 @@ namespace Service_Layer.Services
             User user = _mapper.Map<User>(entity);
             await _userRepository.UpdateAsync(user);
             return true;
+        }
+
+        public UserDto Validation(string login, string password)
+        {
+            User p = _userRepository.GetAllUser().Where(p=>p.Login==login && j=>j.Password == password).FirstOrDefault();
+            return p;
+        }
+
+       public  bool CheckPassword(UserDto entity)
+        {
+            if (entity == null)
+            {
+                return false;
+
+            }
+            
+                var p =  _userRepository.GetAllUser().ToList();
+            if (p != null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            
+            }
+        
         }
     }
 }

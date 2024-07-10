@@ -71,7 +71,7 @@ namespace DayaAcces.BaserRepository
             }
         }
 
-        public async Task<bool> CreatenewNote(Notes entity)
+        public async Task<bool> CreateNewNote(Notes entity)
         {
             if (entity == null)
             {

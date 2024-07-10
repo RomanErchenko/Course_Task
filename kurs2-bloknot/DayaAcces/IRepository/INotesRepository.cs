@@ -10,7 +10,7 @@ namespace DayaAcces.IRepository
     public interface INotesRepository:IRepository<Notes>
     {
         Task<Notes> GetById(int id);
-        Task<bool> CreatenewNote(Notes entity);
+        Task<bool> CreateNewNote(Notes entity);
         IEnumerable<Notes> GetAllNotes();
         Task<bool> UpdateNote(Notes entity);
         Task<bool> DeleteNote(int id);

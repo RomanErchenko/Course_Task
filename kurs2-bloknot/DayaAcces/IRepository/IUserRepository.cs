@@ -12,6 +12,7 @@ namespace DayaAcces.IRepository
         Task<User> GetById(int id);
         Task<bool> CreatenewUser(User entity);
         IEnumerable<User> GetAllUserNotes();
+        IEnumerable<User> GetAllUser();
         Task<bool> UpdateUser(User entity);
         Task<bool> DeleteUser(int id);
        new  Task<bool> SaveChangesAsync();
