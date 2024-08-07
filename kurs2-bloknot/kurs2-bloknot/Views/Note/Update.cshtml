@@ -3,12 +3,16 @@
     ViewBag.Title = "Edit Note";
 }
 <form asp-action="Update" asp-controller="Note" asp-route-id="@Model.Id">
-    >
     <p>
-        <label asp-for="Info">Имя</label><br />
+        <label asp-for="Info">Update this field</label><br />
         <input type="text" asp-for="Info" />
+        
     </p>
-   
+    <p>
+        
+        <input type="hidden" asp-for="UserId" />
+        
+    </p>
     <p>
         <input type="submit" value="Save" />
     </p>

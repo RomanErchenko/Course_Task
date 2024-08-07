@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using DayaAcces.Model;
 using kurs2_bloknot.Models;
 using Microsoft.AspNetCore.Mvc;
 using Service_Layer.Interfaces;
@@ -49,21 +50,19 @@ namespace kurs2_bloknot.Controllers
             
             NotesCreated note = _mapper.Map<NotesCreated>(user);
             return View("Update", note);
-
-        }
-        [HttpPost]
-        public async Task<ActionResult> Update(NotesCreated p )
-        {
-            
-            UserDto us = _user.GetAllUser().Where(p => p.Login == User.Identity.Name).FirstOrDefault();
-            if (us != null)
-            {
-                p.Date = DateTime.Now;
-                p.UserId= us.Id;
-            }
            
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> Update(NotesCreated p)
+        {
+           
+            p.Date = DateTime.Now;
+
             NoteDto note = _mapper.Map<NoteDto>(p);
-            await _notes.CreateNewNote(note);
+
+
+            await _notes.UpdateNotes(note);
 
             return RedirectToAction("Index","StartApp");
 

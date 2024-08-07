@@ -12,9 +12,11 @@
         @foreach (var p in ViewBag.MyNotes)
     {
         <tr>
-            <td>@p.User.Login</td>
+           
+           
             <td>@p.Info</td>
             <td>@p.Date</td>
+           
             <td><a href="~/Note/Update/@p.Id">Edit your note </a></td>
             <td><a href="~/Note/Delete/@p.Id">Delete</a></td>
 

@@ -68,6 +68,7 @@ namespace DayaAcces.BaserRepository
             }
             else
             {
+                //Context.Attach(entity);
                 Context.Entry(entity).State = EntityState.Modified;
                 await SaveChangesAsync();
                 return true;
