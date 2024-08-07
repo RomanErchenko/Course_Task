@@ -26,7 +26,7 @@ namespace DayaAcces.BaserRepository
         }
 
         //method get parameter by Id
-        public async Task<T> GetByIdAsync(int id)
+        public async Task<T>? GetByIdAsync(Guid id)
         {
 
             return await Entity.FindAsync(id);
@@ -41,11 +41,13 @@ namespace DayaAcces.BaserRepository
         //method update item
         public async Task<bool> UpdateAsync(T entity)
         {
+            if (entity == null) 
+            return false;
             Context.Entry(entity).State = EntityState.Modified;
             await SaveChangesAsync();
             return true;
         }
-        public async Task<bool> DeleteAsync(int id)
+        public async Task<bool> DeleteAsync(Guid id)
         {
             var entity = await Entity.FindAsync(id);
             if (entity == null) return false;

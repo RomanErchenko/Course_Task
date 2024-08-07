@@ -2,10 +2,10 @@
 
 namespace kurs2_bloknot.Models
 {
-    public class User_Created
+    public class UserCreated
     {
         [Key]
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         [MaxLength(50)]
         public string Name { get; set; }

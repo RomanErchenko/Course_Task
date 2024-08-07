@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Azure.Core.HttpHeader;
 
 namespace Service_Layer.Services
 {
@@ -35,27 +36,26 @@ namespace Service_Layer.Services
             {
                 User user = _mapper.Map<User>(entity);
                 await _userRepository.CreatenewUser(user);
-                await _userRepository.SaveChangesAsync();
+                //await _userRepository.SaveChangesAsync();
                 return true;
 
             }
         }
 
-        public  async Task<bool> DeleteUser(int id)
+        public  async Task<bool> DeleteUser(Guid id)
         {
             await _userRepository.DeleteAsync(id);
             return true;
         }
 
-        public IEnumerable<UserDto> GetAllUser()
+        public IEnumerable<UserDto>? GetAllUser()
         {
-            IEnumerable<User> notes = _userRepository.GetAllAsync();
-            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<User, UserDto>()).CreateMapper();
-            IEnumerable<UserDto> user = mapper.Map<IEnumerable<User>, List<UserDto>>(notes);
+            IEnumerable<User> notes = _userRepository.GetAllUser();        
+            IEnumerable<UserDto> user = _mapper.Map<IEnumerable<User>, List<UserDto>>(notes);
             return user;
         }
 
-        public async Task<UserDto> GetUser(int id)
+        public async Task<UserDto>? GetUser(Guid id)
         {
             
             var user = await _userRepository.GetById(id);
@@ -74,29 +74,38 @@ namespace Service_Layer.Services
 
         public UserDto Validation(string login, string password)
         {
-            User p = _userRepository.GetAllUser().Where(p=>p.Login==login && j=>j.Password == password).FirstOrDefault();
-            return p;
+            User p = _userRepository.GetAllUser().Where(p=>p.Login==login).Where( p=>p.Password == password).First();
+            UserDto user = _mapper.Map<UserDto>(p);
+            return user;
         }
 
-       public  bool CheckPassword(UserDto entity)
-        {
-            if (entity == null)
-            {
-                return false;
+        //public bool CheckPassword(string login,string password)
+        // {
 
-            }
-            
-                var p =  _userRepository.GetAllUser().ToList();
-            if (p != null)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            
-            }
-        
+
+        //         var p =  _userRepository.GetAllUser().Where(p=>p.Login==login).Where(p=>p.Password==password).ToList();
+        //     if (p != null)
+        //     {
+        //         return false;
+
+        //     }
+        //     else
+        //     {
+        //         return true;
+
+        //     }
+
+        // }
+        public UserDto CheckPass(string login)
+        {
+
+
+            var z = _userRepository.GetAllUser().Where(p => p.Login == login).FirstOrDefault();
+            UserDto user = _mapper.Map<UserDto>(z);
+
+           
+            return user;
+
         }
     }
 }

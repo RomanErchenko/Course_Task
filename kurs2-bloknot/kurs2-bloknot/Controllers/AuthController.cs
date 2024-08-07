@@ -1,28 +1,46 @@
 ﻿using AutoMapper;
-using kurs2_bloknot.Repositories;
+using kurs2_bloknot.Models;
 using Microsoft.AspNetCore.Mvc;
+using Service_Layer.Interfaces;
+using Service_Layer.Model;
 
 namespace kurs2_bloknot.Controllers
 {
     public class AuthController : Controller
     {
-       private readonly IUserRepository user;
-       private readonly IMapper mapper;
+        private readonly IUserService _user;
+        private readonly IMapper _mapper;
 
-        public AuthController(IUserRepository _user, IMapper _mapper)
+        public AuthController(IUserService user, IMapper mapper)
         {
-            user = _user;
-            mapper = _mapper;
+            _user = user;
+            _mapper = mapper;
         }
-        public IActionResult EnterLogin()
+        public IActionResult LoginPage()
+        { return View(); }
+
+        //public bool CheckPassword(string login, string password)
+        //{
+        //    bool check = _user.CheckPassword(login, password);
+        //    return check;
+        //}
+        public IActionResult CreateUser()
         {
-            return View();
+
+            return View("CrateUser");
         }
-        [HttpPost]
-        public async Task<IActionResult> EnterLogin(string login, string password)
-        {
-            bool check = await user.GetPass(login, password);
-            return View(check);
-        }
+        //[HttpPost]
+        //public async Task<IActionResult> CreateUser(UserCreated user)
+        //{
+        //    bool check = CheckPassword(user.Login, user.Password);
+        //    if (check == true)
+        //    {
+        //        UserDto note = _mapper.Map<UserDto>(user);
+        //       await _user.CreateNewUser(note);
+            
+            
+        //    }
+        //    return View();
+        
     }
 }

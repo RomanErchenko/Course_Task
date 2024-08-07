@@ -1,0 +1,27 @@
+﻿@using   kurs2_bloknot.Models;
+
+
+
+
+
+<table>
+    <tr>
+        <td>Info</td>
+        <td>Date</td>
+    </tr>
+        @foreach (var p in ViewBag.MyNotes)
+    {
+        <tr>
+            <td>@p.User.Login</td>
+            <td>@p.Info</td>
+            <td>@p.Date</td>
+            <td><a href="~/Note/Update/@p.Id">Edit your note </a></td>
+            <td><a href="~/Note/Delete/@p.Id">Delete</a></td>
+
+
+        </tr>
+    }
+  </table>
+<p>
+    <a asp-action="Index" asp-controller="StartApp">Return Back to main menu</a>
+</p>

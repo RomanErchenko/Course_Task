@@ -28,13 +28,14 @@ namespace DayaAcces.BaserRepository
             else
             {
                 await Context.Users.AddAsync(entity);
+                await SaveChangesAsync();
                 return true;
 
             }
 
         }
 
-        public async Task<bool> DeleteUser(int id)
+        public async Task<bool> DeleteUser(Guid id)
         {
             await Context.Notess.Where(p => p.Id == id).ExecuteDeleteAsync();
             
@@ -50,9 +51,9 @@ namespace DayaAcces.BaserRepository
             return Context.Users.ToList();
         }
 
-        public async Task<User> GetById(int id)
+        public async Task<User>? GetById(Guid id)
         {
-            return await Context.Users.Where(p => p.Id == id).FirstAsync();
+            return await Context.Users.FindAsync(id);
         }
 
       new  public async Task<bool> SaveChangesAsync()

@@ -18,7 +18,8 @@ namespace Service_Layer.Profimap
             CreateMap<User, UserDto>().ReverseMap();
 
             CreateMap<Notes, NoteDto>().ReverseMap();
-                   
+           // CreateMap<LoginBindingModel, LoginServiceModel>().ReverseMap();
+
 
         }
 

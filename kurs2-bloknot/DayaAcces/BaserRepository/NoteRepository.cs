@@ -22,9 +22,11 @@ namespace DayaAcces.BaserRepository
 
         }
         
-      public async Task<bool> DeleteNote(int id)
+      public async Task<bool> DeleteNote(Guid id)
         {
-            await Context.Notess.Where(p => p.Id == id).ExecuteDeleteAsync();    
+            
+           var p= await Context.Notess.Where(p => p.Id == id).ExecuteDeleteAsync();
+          
             return true;
         }
 
@@ -41,12 +43,13 @@ namespace DayaAcces.BaserRepository
         }
 
         public async  Task<User> GetAuthor(Notes entity)
+
         {
             return  await  Context.Users.Where(p=>p.Id==entity.User.Id).FirstAsync();
            
         }
 
-      public async  Task<Notes> GetById(int id)
+      public async  Task<Notes> GetById(Guid id)
         {
             return await Context.Notess.Where(p=>p.Id==id).FirstAsync();
         }
@@ -81,7 +84,7 @@ namespace DayaAcces.BaserRepository
             {  
                 
                await Context.Notess.AddAsync(entity);
-                await SaveChangesAsync();
+               await SaveChangesAsync();
                 return true;
             }
         }

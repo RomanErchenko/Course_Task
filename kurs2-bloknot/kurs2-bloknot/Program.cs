@@ -3,13 +3,21 @@ using DayaAcces.BaserRepository;
 using DayaAcces.IRepository;
 using DayaAcces.Model;
 using kurs2_bloknot.Mapper;
-using kurs2_bloknot.Repositories;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Service_Layer.Interfaces;
+using Service_Layer.Services;
+using System.Reflection.PortableExecutable;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options =>
+                {
+                    options.LoginPath = "/account/signin";
+                });
 builder.Services.AddControllers()
                 .AddJsonOptions(options =>
                 {
@@ -21,14 +29,19 @@ var mapperConfiguration = new MapperConfiguration(config =>
 {
     config.AddProfile(new Profimap());
 });
+
 builder.Services.AddSingleton(mapperConfiguration.CreateMapper());
 builder.Services.AddDbContext<ModelContext>();
 builder.Services.AddTransient(typeof(IRepository<>), typeof(BaseRepository<>));
 builder.Services.AddTransient<IUserRepository, UserRepository>();
-//builder.Services.AddTransient<INotesRepository, NoteRepository>();
+builder.Services.AddTransient<INotesRepository, NoteRepository>();
+builder.Services.AddTransient<IUserService, UserService>();
+builder.Services.AddTransient<INoteService, NoteServise>();
+
 
 
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -47,6 +60,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=StartApp}/{action=Index}/{id?}");
 
 app.Run();

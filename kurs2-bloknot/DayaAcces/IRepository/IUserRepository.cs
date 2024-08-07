@@ -9,13 +9,13 @@ namespace DayaAcces.IRepository
 {
     public interface IUserRepository: IRepository<User>
     {
-        Task<User> GetById(int id);
+        Task<User>? GetById(Guid id);
         Task<bool> CreatenewUser(User entity);
         IEnumerable<User> GetAllUserNotes();
         IEnumerable<User> GetAllUser();
         Task<bool> UpdateUser(User entity);
-        Task<bool> DeleteUser(int id);
-       new  Task<bool> SaveChangesAsync();
+        Task<bool> DeleteUser(Guid id);
+        new Task<bool> SaveChangesAsync();
 
     }
 }

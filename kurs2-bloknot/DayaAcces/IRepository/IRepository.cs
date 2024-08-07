@@ -9,10 +9,10 @@ namespace DayaAcces.IRepository
     public interface IRepository<T> : IDisposable where T : class
     {
         IEnumerable<T> GetAllAsync();
-        Task<T> GetByIdAsync(int id);
-        Task<bool> AddAsync(T entity);
+        Task<T>? GetByIdAsync(Guid id);
+        Task<bool> AddAsync(T entity) ;
         Task<bool> UpdateAsync(T entity);
-        Task<bool> DeleteAsync(int id);
+        Task<bool> DeleteAsync(Guid id);
         Task<bool> SaveChangesAsync();
         Task<bool> GetInfo(string p);
        

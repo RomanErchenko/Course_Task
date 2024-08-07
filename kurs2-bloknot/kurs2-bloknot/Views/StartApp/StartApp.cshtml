@@ -1,0 +1,30 @@
+﻿@using   kurs2_bloknot.Models;
+
+<h3>MY NOTE PAGE!</h3>
+
+<p>Username: @ViewBag.Username</p>
+
+@if (User.Identity.IsAuthenticated)
+{
+    <p>You are authenticated!</p>
+    <p>
+        <a asp-action="SignOut" asp-controller="Account">Sign out</a>
+        
+    </p>
+    <p>
+        <a asp-action="CreateNote" asp-controller="Note">Add New Note</a>
+    </p>
+    <p>
+        <a asp-action="Getall" asp-controller="StartApp">Show all notes</a>
+    </p>
+}
+else
+{
+    <p>You are not authenticated!</p>
+    <p>
+        <a asp-action="SignIn" asp-controller="Account">Sign in</a>
+    </p>
+    <p>
+        <a asp-action="Register" asp-controller="Account">Registration</a>
+    </p>
+}

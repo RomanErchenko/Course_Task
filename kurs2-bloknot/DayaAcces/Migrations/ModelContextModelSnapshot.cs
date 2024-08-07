@@ -27,11 +27,9 @@ namespace DayaAcces.Migrations
 
             modelBuilder.Entity("DayaAcces.Model.Notes", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
@@ -40,8 +38,8 @@ namespace DayaAcces.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
@@ -52,27 +50,18 @@ namespace DayaAcces.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 1,
-                            Date = new DateTime(2023, 7, 20, 18, 30, 25, 0, DateTimeKind.Unspecified),
-                            Info = "Dimon Info1",
-                            UserId = 1
-                        },
-                        new
-                        {
-                            Id = 2,
+                            Id = new Guid("dc3a0147-b895-48dd-82f4-420c4611a4c9"),
                             Date = new DateTime(2024, 7, 20, 18, 30, 25, 0, DateTimeKind.Unspecified),
                             Info = "Pashka Info1",
-                            UserId = 2
+                            UserId = new Guid("54f2f515-54a1-454a-9585-54a1454a9585")
                         });
                 });
 
             modelBuilder.Entity("DayaAcces.Model.User", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Login")
                         .IsRequired()
@@ -93,17 +82,10 @@ namespace DayaAcces.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 1,
+                            Id = new Guid("54f2f515-54a1-454a-9585-54a1454a9585"),
                             Login = "login",
                             Name = "Dimon",
                             Password = "password"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Login = "login1",
-                            Name = "Pashka",
-                            Password = "password1"
                         });
                 });
 

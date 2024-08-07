@@ -1,0 +1,19 @@
+﻿@using kurs2_bloknot.Models;
+<h3>List of notes</h3>
+<table>
+    <tr>
+        <td>Info</td>
+        <td>Date</td>
+    </tr>
+    @foreach (var p in ViewBag.Test)
+    {
+        <tr>
+            <td>@p.Info</td>
+            <td>@p.Date</td>
+           
+
+
+        </tr>
+    }
+</table>
+

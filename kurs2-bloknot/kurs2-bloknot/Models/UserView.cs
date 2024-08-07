@@ -2,12 +2,12 @@
 
 namespace kurs2_bloknot.Models
 {
-    public class User_View
+    public class UserView
     {
 
         [Key]
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public string Name { get; set; }
-        public virtual List<Notes_View>? Note { get; set; } = new List<Notes_View>();
+        public virtual List<NotesView>? Note { get; set; } = new List<NotesView>();
     }
 }

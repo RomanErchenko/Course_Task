@@ -3,12 +3,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
-
 namespace DayaAcces.Migrations
 {
     /// <inheritdoc />
-    public partial class mig1 : Migration
+    public partial class ssk : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -17,8 +15,7 @@ namespace DayaAcces.Migrations
                 name: "Users",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Login = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false)
@@ -32,11 +29,10 @@ namespace DayaAcces.Migrations
                 name: "Notess",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Info = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UserId = table.Column<int>(type: "int", nullable: false)
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -52,20 +48,12 @@ namespace DayaAcces.Migrations
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "Id", "Login", "Name", "Password" },
-                values: new object[,]
-                {
-                    { 1, "login", "Dimon", "password" },
-                    { 2, "login1", "Pashka", "password1" }
-                });
+                values: new object[] { new Guid("54f2f515-54a1-454a-9585-54a1454a9585"), "login", "Dimon", "password" });
 
             migrationBuilder.InsertData(
                 table: "Notess",
                 columns: new[] { "Id", "Date", "Info", "UserId" },
-                values: new object[,]
-                {
-                    { 1, new DateTime(2023, 7, 20, 18, 30, 25, 0, DateTimeKind.Unspecified), "Dimon Info1", 1 },
-                    { 2, new DateTime(2024, 7, 20, 18, 30, 25, 0, DateTimeKind.Unspecified), "Pashka Info1", 2 }
-                });
+                values: new object[] { new Guid("dc3a0147-b895-48dd-82f4-420c4611a4c9"), new DateTime(2024, 7, 20, 18, 30, 25, 0, DateTimeKind.Unspecified), "Pashka Info1", new Guid("54f2f515-54a1-454a-9585-54a1454a9585") });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Notess_UserId",

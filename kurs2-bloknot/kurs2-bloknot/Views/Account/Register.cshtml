@@ -1,0 +1,24 @@
+﻿@model kurs2_bloknot.Models.RegisterBindingModel
+
+<h3>Register new User</h3>
+
+<form asp-controller="Account" asp-action="Register" method="post">
+    <label asp-for="Login"></label>
+    <input asp-for="Login" />
+    <span asp-validation-for="Login"></span>
+    <br />
+    <label asp-for="Name"></label>
+    <input asp-for="Name" />
+    <span asp-validation-for="Name"></span>
+    <br />
+    <label asp-for="Password"></label>
+    <input asp-for="Password" />
+    <span asp-validation-for="Password"></span>
+    <br />
+    <label asp-for="PasswordConfirm"></label>
+    <input asp-for="PasswordConfirm" />
+    <span asp-validation-for="PasswordConfirm"></span>
+    <br />
+    <div asp-validation-summary="ModelOnly"></div>
+    <button type="submit">Register</button>
+</form>

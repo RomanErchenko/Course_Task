@@ -1,0 +1,17 @@
+﻿@model kurs2_bloknot.Models.NotesCreated
+@{
+    ViewBag.Title = "Edit Note";
+}
+<form asp-action="Update" asp-controller="Note" asp-route-id="@Model.Id">
+    >
+    <p>
+        <label asp-for="Info">Имя</label><br />
+        <input type="text" asp-for="Info" />
+    </p>
+   
+    <p>
+        <input type="submit" value="Save" />
+    </p>
+</form>
+
+<td><a href="~/StartApp/Index/">Return to main page</a></td>
